@@ -3,160 +3,146 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Annual Communication Report 2025 | European Committee of the Regions</title>
-  <meta name="description" content="Interactive storytelling infographic for the European Committee of the Regions Annual Communication Report 2025.">
+  <title>Annual Communication Report 2025 | Scroll Storytelling</title>
+  <meta name="description" content="Modern scroll-driven storytelling infographic for the Annual Communication Report 2025 of the European Committee of the Regions.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
 
-  <header class="hero" id="top" aria-label="Annual Communication Report 2025 introduction">
-    <img class="hero-bg" src="assets/images/hero-european-conference.jpg" alt="Wide conference hall with a large stage, audience and blue event lighting.">
-    <div class="hero-overlay"></div>
-    <nav class="topbar" aria-label="Main navigation">
-      <img src="assets/logo/cor-logo-white.png" alt="European Committee of the Regions" class="cor-logo">
-      <button id="contrastToggle" class="utility-btn" aria-pressed="false">High contrast</button>
+  <header class="site-header">
+    <img src="assets/logo/cor-logo-white.png" alt="European Committee of the Regions" class="logo">
+    <nav aria-label="Story chapters">
+      <a href="#media">Media</a>
+      <a href="#social">Social</a>
+      <a href="#campaigns">Campaigns</a>
+      <a href="#closing">Conclusion</a>
     </nav>
-    <div class="hero-content reveal">
-      <p class="eyebrow">Annual Communication Report 2025</p>
-      <h1>Local voices.<br>European impact.</h1>
-      <p class="lead">A visual story of how the European Committee of the Regions connected people, places and policy through media, events, digital platforms and innovation.</p>
-      <div class="hero-actions">
-        <button class="btn primary" data-jump="at-a-glance">Start the story</button>
-        <button class="btn ghost" data-jump="campaigns">Explore campaigns</button>
-      </div>
-    </div>
-    <section id="heroMetrics" class="hero-metrics" aria-label="Key figures"></section>
+    <button id="contrastToggle" class="contrast" aria-pressed="false">High contrast</button>
   </header>
 
-  <div class="section-nav" aria-label="Report chapters">
-    <button class="nav-pill active" data-target="at-a-glance">At a glance</button>
-    <button class="nav-pill" data-target="ecosystem">Ecosystem</button>
-    <button class="nav-pill" data-target="media-social">Media & social</button>
-    <button class="nav-pill" data-target="audiovisual-photo">AV & photo</button>
-    <button class="nav-pill" data-target="campaigns">Campaigns</button>
-    <button class="nav-pill" data-target="events-digital">Events & digital</button>
-    <button class="nav-pill" data-target="lessons">Lessons</button>
-  </div>
-
-  <main id="main" tabindex="-1">
-    <section class="panel active" id="at-a-glance" tabindex="-1">
-      <div class="split-panel">
-        <div class="panel-heading">
-          <p class="eyebrow dark">2025 at a glance</p>
-          <h2>Communication became more visible, more visual and more measurable.</h2>
-          <p>The 2025 results show a strong year for visibility: record media mentions, audience growth on social platforms, strong website performance and a dense calendar of events.</p>
-        </div>
-        <div class="stat-cloud" aria-hidden="true">
-          <span>+41%</span><span>+18.7%</span><span>4.2M</span><span>1.2M</span>
-        </div>
+  <main id="main">
+    <section class="hero scene" id="opening" data-theme="dark">
+      <img src="assets/images/hero-european-conference.jpg" alt="Large conference hall with stage, audience and blue lighting." class="scene-bg">
+      <div class="shade"></div>
+      <div class="hero-copy">
+        <p class="kicker">Annual Communication Report 2025</p>
+        <h1>Local voices.<br>European impact.</h1>
+        <p class="lead">A scroll-driven visual story of the CoR communication year: media, social platforms, audiovisual production, events, campaigns and digital innovation.</p>
       </div>
-      <div class="metric-grid" id="metricGrid"></div>
+      <div class="scroll-hint">Scroll to explore</div>
     </section>
 
-    <section class="panel" id="ecosystem" tabindex="-1">
-      <div class="panel-heading centre">
-        <p class="eyebrow dark">Communication ecosystem</p>
-        <h2>One institution, multiple routes to impact.</h2>
-        <p>Press, social media, audiovisual production, photo coverage, events, webstreaming, website and Dynamics 365 worked together to reach different audiences.</p>
-      </div>
-      <div class="ecosystem-map" aria-label="Communication ecosystem diagram">
-        <div class="ecosystem-centre">CoR<br><small>Communication</small></div>
-        <button style="--angle:0deg">Media</button>
-        <button style="--angle:60deg">Social</button>
-        <button style="--angle:120deg">AV</button>
-        <button style="--angle:180deg">Photo</button>
-        <button style="--angle:240deg">Events</button>
-        <button style="--angle:300deg">Digital</button>
-      </div>
-      <div id="channelCards" class="card-grid"></div>
+    <section class="kpi-band" aria-label="Key figures">
+      <div id="heroMetrics" class="kpi-grid"></div>
     </section>
 
-    <section class="panel photo-panel" id="media-social" tabindex="-1">
-      <div class="story-card wide dark-card">
-        <img src="assets/images/newsroom-journalists.jpg" alt="Video camera screen showing an institutional press or media setting.">
-        <div>
-          <p class="eyebrow">Media visibility</p>
-          <h2>28,281 media mentions</h2>
-          <p>Media coverage reached the highest number since 2017. Strong visibility came from the main campaigns and from countries with high coverage including Spain, Italy, Poland and Greece.</p>
-        </div>
-      </div>
-      <div class="two-columns">
-        <div>
-          <p class="eyebrow dark">Social media growth</p>
-          <h2>Follower growth accelerated.</h2>
-          <p>CoR channels reached 261,307 followers. Organic engagement more than doubled, and video formats produced 1.2 million organic video views.</p>
-        </div>
-        <div id="socialBars" class="horizontal-chart"></div>
-      </div>
+    <section class="intro-block">
+      <p class="kicker dark">The story in one sentence</p>
+      <h2>2025 was about turning institutional communication into visible, measurable and shareable impact.</h2>
+      <p>The app now follows a vertical narrative: each scroll reveals one communication layer, supported by a strong image, one main message and one evidence point.</p>
     </section>
 
-    <section class="panel photo-panel" id="audiovisual-photo" tabindex="-1">
-      <div class="mosaic">
-        <article class="image-tile big">
-          <img src="assets/images/live-production-control-room.jpg" alt="Live production control room with audio and video equipment.">
-          <div><strong>280</strong><span>recordings for media and press purposes</span></div>
-        </article>
-        <article class="image-tile">
-          <img src="assets/images/event-photographer.jpg" alt="Person holding a camera against a blue background.">
-          <div><strong>17,884</strong><span>photos produced</span></div>
-        </article>
-        <article class="image-tile">
-          <img src="assets/images/conference-speaker.jpg" alt="Conference stage with audience and bright stage lighting.">
-          <div><strong>84</strong><span>videos, clips and podcast episodes</span></div>
-        </article>
+    <section id="media" class="scene split-scene">
+      <img src="assets/images/newsroom-journalists.jpg" alt="Camera screen showing an institutional media and press setting." class="scene-bg">
+      <div class="shade"></div>
+      <article class="story-panel left">
+        <p class="kicker">Chapter 1 · Media visibility</p>
+        <h2>A record year for media coverage.</h2>
+        <p>28,281 media mentions made 2025 the strongest year since 2017. Visibility was driven by campaign narratives, plenaries, EURegionsWeek and political moments that travelled beyond Brussels.</p>
+        <div class="mega-stat"><span data-count="28281">0</span><small>media mentions</small></div>
+      </article>
+    </section>
+
+    <section id="social" class="white-section">
+      <div class="section-copy">
+        <p class="kicker dark">Chapter 2 · Social media</p>
+        <h2>Growth came from formats that people actually use.</h2>
+        <p>The CoR reached 261,307 followers across social channels. Organic engagements more than doubled, helped by reels, stories, collaborations and content diversification.</p>
       </div>
-      <div class="panel-heading">
-        <p class="eyebrow dark">Audiovisual and photo coverage</p>
-        <h2>Stories were produced for screens, feeds and archives.</h2>
-        <p>The report highlights audiovisual production, studio recordings, podcasts and a major increase in photo output and Flickr views.</p>
+      <div id="socialBars" class="social-chart"></div>
+    </section>
+
+    <section id="av" class="scene split-scene">
+      <img src="assets/images/live-production-control-room.jpg" alt="Live production control room with audio and video equipment." class="scene-bg">
+      <div class="shade blue"></div>
+      <article class="story-panel right">
+        <p class="kicker">Chapter 3 · Audiovisual</p>
+        <h2>Political content became screen-ready.</h2>
+        <p>Recordings, studio debates, clips and podcasts transformed institutional messages into reusable formats for media, social platforms and web audiences.</p>
+        <div class="mini-stats">
+          <div><strong>280</strong><span>recordings</span></div>
+          <div><strong>84</strong><span>videos, clips and podcasts</span></div>
+          <div><strong>219,708</strong><span>views</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="photo" class="immersive-gallery">
+      <div class="gallery-copy">
+        <p class="kicker dark">Chapter 4 · Photo service</p>
+        <h2>Images helped the story travel.</h2>
+        <p>Photo production increased strongly, while Flickr views reached 4.2 million.</p>
+      </div>
+      <div class="photo-grid">
+        <figure class="large"><img src="assets/images/event-photographer.jpg" alt="Hands holding a camera against a blue background."><figcaption><strong>17,884</strong> photos produced</figcaption></figure>
+        <figure><img src="assets/images/conference-speaker.jpg" alt="Conference stage with audience and bright lighting."><figcaption><strong>4.2M</strong> Flickr views</figcaption></figure>
+        <figure><img src="assets/images/european-event-audience.jpg" alt="Audience seated in a conference hall."><figcaption><strong>182</strong> albums</figcaption></figure>
       </div>
     </section>
 
-    <section class="panel" id="campaigns" tabindex="-1">
-      <div class="panel-heading">
-        <p class="eyebrow dark">Campaign outreach</p>
-        <h2>Three core priorities shaped the narrative — with Ukraine as a visible cross-cutting priority.</h2>
-        <p>The figures below show media mentions by campaign and their approximate share of the total annual media coverage.</p>
-      </div>
-      <div class="campaign-layout">
-        <div class="campaign-visual-stack">
-          <img src="assets/images/proximity-citizens.jpg" alt="Several hands joined together outdoors in bright daylight.">
-          <img src="assets/images/cohesion-regions.jpg" alt="Large bridge crossing calm water at sunset.">
-          <img src="assets/images/resilience-climate.jpg" alt="Close-up of a green leaf with water drops.">
+    <section id="events" class="scene split-scene">
+      <img src="assets/images/european-event-audience.jpg" alt="Large seated audience in a conference setting." class="scene-bg">
+      <div class="shade"></div>
+      <article class="story-panel left">
+        <p class="kicker">Chapter 5 · Events</p>
+        <h2>From rooms to regions, participation remained central.</h2>
+        <p>137 events brought together around 27,000 participants, connecting institutional priorities with regional and local audiences.</p>
+        <div class="mini-stats two">
+          <div><strong>7,570+</strong><span>EURegionsWeek registrations</span></div>
+          <div><strong>2,510</strong><span>EuroPCom participants</span></div>
         </div>
-        <div id="campaignBars"></div>
-      </div>
+      </article>
     </section>
 
-    <section class="panel" id="events-digital" tabindex="-1">
-      <div class="story-card wide light-card">
-        <img src="assets/images/european-event-audience.jpg" alt="Large seated audience in a conference hall.">
-        <div>
-          <p class="eyebrow dark">Events and digital engagement</p>
-          <h2>From rooms to streams to inboxes.</h2>
-          <p>Events, webstreaming, website activity and Dynamics 365 mailings created a connected engagement chain for institutional communication.</p>
-        </div>
+    <section id="campaigns" class="campaign-section">
+      <div class="section-copy centred">
+        <p class="kicker dark">Chapter 6 · Campaigns</p>
+        <h2>Four narratives structured the year.</h2>
+        <p>Proximity, Cohesion, Resilience and Ukraine combined media, social media, visual production, events and digital channels.</p>
       </div>
-      <div id="eventTimeline" class="timeline"></div>
-      <div id="digitalCards" class="mini-grid"></div>
+      <div id="campaignCards" class="campaign-cards"></div>
     </section>
 
-    <section class="panel final-panel" id="lessons" tabindex="-1">
-      <div class="panel-heading centre">
-        <p class="eyebrow dark">What 2025 tells us</p>
-        <h2>Storytelling, data and accessibility need to work together.</h2>
-        <p>The year confirms that the strongest communication products combine clear political messages, visual formats, reliable metrics and simple user journeys.</p>
+    <section id="innovation" class="scene split-scene">
+      <img src="assets/images/resilience-climate.jpg" alt="Close-up of a green leaf with visible water drops." class="scene-bg">
+      <div class="shade green"></div>
+      <article class="story-panel right light">
+        <p class="kicker dark">Chapter 7 · Digital and innovation</p>
+        <h2>More interactive, more accessible storytelling.</h2>
+        <p>Website growth, webstreaming, Dynamics journeys, visual identities and emerging AI-driven tools point towards more personalised and data-informed communication.</p>
+        <div class="mini-stats">
+          <div><strong>2.4M</strong><span>website views</span></div>
+          <div><strong>286</strong><span>streamed sessions</span></div>
+          <div><strong>723</strong><span>mailings</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="closing" class="closing scene">
+      <img src="assets/images/cohesion-regions.jpg" alt="Large bridge over calm water at sunset." class="scene-bg">
+      <div class="shade"></div>
+      <div class="closing-card">
+        <p class="kicker">Conclusion</p>
+        <h2>Communication works when impact is visible.</h2>
+        <p>The 2025 results confirm the value of combining political clarity, strong visuals, reliable data, accessible journeys and formats designed for modern audiences.</p>
+        <img src="assets/logo/cor-logo-white.png" alt="European Committee of the Regions" class="closing-logo">
       </div>
-      <ul class="lesson-list" id="lessonList"></ul>
-      <footer class="report-footer">
-        <img src="assets/logo/cor-logo-white.png" alt="European Committee of the Regions">
-        <p>Annual Communication Report 2025 · Interactive prototype for GitHub Pages</p>
-      </footer>
     </section>
   </main>
 
-  <script id="reportData" type="application/json">{"hero": [{"value": 28281, "suffix": "", "label": "media mentions", "detail": "Highest level since 2017"}, {"value": 261307, "suffix": "", "label": "social followers", "detail": "+18.7% across CoR channels"}, {"value": 2400000, "suffix": "", "label": "website views", "detail": "+41% compared with 2024"}, {"value": 27000, "suffix": "", "label": "event participants", "detail": "Across 137 events"}], "channels": [{"name": "Press and media", "value": "28,281", "trend": "Record visibility", "text": "Media coverage reached its highest level since 2017, with Spain, Italy, Poland and Greece among the strongest countries for coverage.", "image": "newsroom-journalists.jpg"}, {"name": "Social media", "value": "261,307", "trend": "+18.7% followers", "text": "Organic engagements more than doubled, supported by a stronger focus on reels, collaborations and diversified formats.", "image": "proximity-citizens.jpg"}, {"name": "Audiovisual", "value": "280", "trend": "recordings", "text": "Recordings, studio debates, videos, clips and podcasts helped transform political content into formats adapted for digital audiences.", "image": "live-production-control-room.jpg"}, {"name": "Photo service", "value": "17,884", "trend": "+78% photos", "text": "Photo production increased strongly and Flickr views reached 4.2 million, a 51% increase compared with 2024.", "image": "event-photographer.jpg"}, {"name": "Events", "value": "137", "trend": "events", "text": "The CoR hosted, supported and promoted conferences, local dialogues, EURegionsWeek sessions and flagship activities across Europe.", "image": "european-event-audience.jpg"}, {"name": "Digital platforms", "value": "2.4M", "trend": "+41% website views", "text": "Website, webstreaming and Dynamics 365 mailings worked together to increase engagement and support clearer calls to action.", "image": "cohesion-regions.jpg"}], "campaigns": [{"name": "Proximity", "mentions": 14827, "share": 52, "colour": "#ffed00", "text": "The strongest campaign in media visibility, linked to citizens, local engagement, events and political proximity.", "image": "proximity-citizens.jpg"}, {"name": "Cohesion", "mentions": 8102, "share": 29, "colour": "#00a8e8", "text": "A strong narrative around cohesion policy, MFF, EURegionsWeek and the Cohesion Alliance generated high visibility.", "image": "cohesion-regions.jpg"}, {"name": "Resilience", "mentions": 3311, "share": 12, "colour": "#35e879", "text": "Climate, water resilience, green transition and COP30 activities contributed to the visibility of the resilience priority.", "image": "resilience-climate.jpg"}, {"name": "Ukraine", "mentions": 2015, "share": 7, "colour": "#b35cff", "text": "Ukraine remained a visible priority through TIPS4UA, Ukraine Alliance and communication with Ukrainian local leaders.", "image": "conference-speaker.jpg"}], "socialPlatforms": [{"name": "LinkedIn", "followers": 93140, "growth": "+25.6%"}, {"name": "Facebook", "followers": 72204, "growth": "+13%"}, {"name": "X", "followers": 56829, "growth": "-1%"}, {"name": "Instagram", "followers": 31939, "growth": "+56.8%"}, {"name": "Threads", "followers": 7195, "growth": "+54.6%"}], "events": [{"value": "137", "name": "Events", "text": "Including hosted events, conferences, seminars, participatory sessions and local dialogues."}, {"value": "7,570+", "name": "EURegionsWeek registrations", "text": "6,500 attended 143 sessions, with strong on-site participation at the CoR."}, {"value": "2,510", "name": "EuroPCom participants", "text": "A communication community spanning 62 countries, with online and on-site participation."}, {"value": "230+", "name": "EU Local Councillors", "text": "Councillors took part in 15 study visits to Brussels in 2025."}, {"value": "150", "name": "New YEPs", "text": "A new cohort of young elected politicians joined the programme in 2025."}, {"value": "3,206", "name": "Open Day visitors", "text": "A substantial increase compared with 2024, with 27 stands organised."}], "digital": [{"value": "286", "label": "streamed sessions", "detail": "More than 45,000 views excluding plenaries"}, {"value": "723", "label": "Dynamics mailings", "detail": "Sent across 888 journeys"}, {"value": "55%", "label": "email engagement increase", "detail": "Real-time marketing became fully operational"}, {"value": "210", "label": "visual projects", "detail": "More than 1,500 visuals and products created"}], "lessons": ["Clearer calls to action increase engagement.", "Short video, reels and collaborations expanded reach.", "Visual storytelling helps transform complex institutional content into public-facing narratives.", "Data quality and ownership remain essential for sustainable communication impact.", "Copyright support remains necessary when producing high volumes of visual content.", "AI and interactive tools can support content personalisation when governance is clear."]}</script>
+  <script id="reportData" type="application/json">{"hero": [{"value": 28281, "label": "media mentions", "detail": "Highest level since 2017"}, {"value": 261307, "label": "followers", "detail": "+18.7% across social channels"}, {"value": 2400000, "label": "website views", "detail": "+41% compared with 2024"}, {"value": 27000, "label": "event participants", "detail": "Across 137 events"}], "socialPlatforms": [{"name": "LinkedIn", "followers": 93140, "growth": "+25.6%"}, {"name": "Facebook", "followers": 72204, "growth": "+13%"}, {"name": "X", "followers": 56829, "growth": "-1%"}, {"name": "Instagram", "followers": 31939, "growth": "+56.8%"}, {"name": "Threads", "followers": 7195, "growth": "+54.6%"}], "campaigns": [{"name": "Proximity", "mentions": 14827, "share": 52, "colour": "#ffed00", "image": "proximity-citizens.jpg", "text": "The strongest campaign in media visibility, built around citizens, local engagement and political proximity."}, {"name": "Cohesion", "mentions": 8102, "share": 29, "colour": "#00a8e8", "image": "cohesion-regions.jpg", "text": "A strong narrative around cohesion policy, the future MFF, EURegionsWeek and the Cohesion Alliance."}, {"name": "Resilience", "mentions": 3311, "share": 12, "colour": "#35e879", "image": "resilience-climate.jpg", "text": "Climate, water resilience, green transition and COP30 strengthened the resilience priority."}, {"name": "Ukraine", "mentions": 2015, "share": 7, "colour": "#b35cff", "image": "conference-speaker.jpg", "text": "Ukraine remained a visible cross-cutting priority through TIPS4UA, Ukraine Alliance and communication with Ukrainian local leaders."}], "chapters": [{"id": "opening", "kicker": "Annual Communication Report 2025", "title": "Local voices. European impact.", "text": "A visual story of how the European Committee of the Regions connected people, places and policy through media, events, digital platforms and innovation.", "image": "hero-european-conference.jpg"}, {"id": "media", "kicker": "Chapter 1 · Media visibility", "title": "A record year for media coverage.", "text": "28,281 media mentions made 2025 the strongest year since 2017. Visibility was driven by campaign narratives, plenaries, EURegionsWeek and political moments that travelled beyond Brussels.", "image": "newsroom-journalists.jpg", "stat": "28,281", "label": "media mentions"}, {"id": "social", "kicker": "Chapter 2 · Social media", "title": "Growth came from formats that people actually use.", "text": "The CoR reached 261,307 followers across social channels. Organic engagements more than doubled, helped by reels, stories, collaborations and a more systematic approach to content diversification.", "image": "proximity-citizens.jpg", "stat": "1.2M", "label": "organic video views"}, {"id": "av", "kicker": "Chapter 3 · Audiovisual", "title": "Political content became screen-ready.", "text": "Audiovisual production supported the three communication priorities with recordings, studio debates, videos, clips and podcasts adapted to press, broadcast and social media use.", "image": "live-production-control-room.jpg", "stat": "280", "label": "recordings"}, {"id": "photo", "kicker": "Chapter 4 · Photo service", "title": "Images helped the story travel.", "text": "17,884 photos were produced and included in 182 albums. Flickr views reached 4.2 million, up 51% compared with 2024, showing the continued value of strong visual coverage.", "image": "event-photographer.jpg", "stat": "4.2M", "label": "Flickr views"}, {"id": "events", "kicker": "Chapter 5 · Events", "title": "From rooms to regions, participation remained central.", "text": "137 events brought together around 27,000 participants. EURegionsWeek, EuroPCom, Open Day, local dialogues and study visits helped connect institutional priorities with local and regional audiences.", "image": "european-event-audience.jpg", "stat": "137", "label": "events"}, {"id": "campaigns", "kicker": "Chapter 6 · Campaigns", "title": "Four narratives structured the year.", "text": "Proximity, Cohesion, Resilience and Ukraine formed the main communication architecture, each combining media, social media, visual production, events and digital channels.", "image": "cohesion-regions.jpg", "stat": "52%", "label": "media mentions for Proximity"}, {"id": "innovation", "kicker": "Chapter 7 · Digital and innovation", "title": "The next step is more interactive, more accessible storytelling.", "text": "Website growth, webstreaming, Dynamics 365 journeys, visual identities and emerging AI-driven tools point towards more personalised, data-informed and accessible communication experiences.", "image": "resilience-climate.jpg", "stat": "723", "label": "Dynamics mailings"}, {"id": "closing", "kicker": "Conclusion", "title": "Communication works when impact is visible.", "text": "The 2025 results confirm the value of combining political clarity, strong visuals, reliable data, accessible user journeys and formats designed for modern audiences.", "image": "conference-speaker.jpg", "stat": "2025", "label": "a year of visible impact"}]}</script>
   <script src="js/app.js"></script>
 </body>
 </html>

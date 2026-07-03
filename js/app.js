@@ -3,87 +3,84 @@ const data = JSON.parse(document.getElementById('reportData').textContent);
 const fmt = new Intl.NumberFormat('en-GB');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function animateNumber(el, value, suffix = ''){
-  if(reduceMotion || Number.isNaN(value)){ el.textContent = fmt.format(value) + suffix; return; }
-  const duration = 1050;
+function animateNumber(el, value){
+  if(reduceMotion){ el.textContent = fmt.format(value); return; }
+  const duration = 1100;
   const start = performance.now();
   function frame(now){
     const progress = Math.min(1, (now-start)/duration);
     const eased = 1 - Math.pow(1-progress, 3);
-    el.textContent = fmt.format(Math.round(value*eased)) + suffix;
+    el.textContent = fmt.format(Math.round(value*eased));
     if(progress < 1) requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
 }
 
-function renderHero(){
+function renderHeroMetrics(){
   const wrap = document.getElementById('heroMetrics');
-  wrap.innerHTML = data.hero.map((m,i)=>`<article class="metric-card glass reveal" style="animation-delay:${i*90}ms"><div class="metric-value" data-value="${m.value}" data-suffix="${m.suffix || ''}">0</div><div class="metric-label">${m.label}</div><p class="metric-detail">${m.detail}</p></article>`).join('');
-  wrap.querySelectorAll('.metric-value').forEach(el=>animateNumber(el, Number(el.dataset.value), el.dataset.suffix));
-}
-
-function renderMetricGrid(){
-  const wrap = document.getElementById('metricGrid');
-  wrap.innerHTML = data.hero.map((m,i)=>`<article class="metric-card reveal" style="animation-delay:${i*90}ms"><div class="metric-value">${fmt.format(m.value)}</div><div class="metric-label">${m.label}</div><p class="metric-detail">${m.detail}</p></article>`).join('');
-}
-
-function renderChannels(){
-  document.getElementById('channelCards').innerHTML = data.channels.map((c,i)=>`<button class="channel-card" aria-expanded="false"><img src="assets/images/${c.image}" alt=""><strong>${c.name}</strong><div class="channel-value">${c.value}</div><p><b>${c.trend}</b></p><div class="channel-text">${c.text}</div></button>`).join('');
-  document.querySelectorAll('.channel-card').forEach(card=>card.addEventListener('click',()=>card.setAttribute('aria-expanded', card.getAttribute('aria-expanded') !== 'true')));
-}
-
-function renderCampaigns(){
-  const max = Math.max(...data.campaigns.map(c=>c.mentions));
-  document.getElementById('campaignBars').innerHTML = data.campaigns.map(c=>`<div class="bar-row"><div class="bar-header"><span>${c.name}</span><span>${fmt.format(c.mentions)} · ${c.share}%</span></div><div class="bar-track"><div class="bar-fill" style="background:${c.colour};width:${(c.mentions/max)*100}%"></div></div><p>${c.text}</p></div>`).join('');
+  wrap.innerHTML = data.hero.map((m,i)=>`
+    <article class="kpi-card" style="transition-delay:${i*80}ms">
+      <div class="kpi-value" data-count="${m.value}">0</div>
+      <div class="kpi-label">${m.label}</div>
+      <p class="kpi-detail">${m.detail}</p>
+    </article>`).join('');
 }
 
 function renderSocial(){
   const max = Math.max(...data.socialPlatforms.map(p=>p.followers));
-  document.getElementById('socialBars').innerHTML = data.socialPlatforms.map(p=>`<div class="chart-row"><span>${p.name}</span><div class="chart-track"><div class="chart-fill" style="width:${(p.followers/max)*100}%"></div></div><span>${fmt.format(p.followers)}<br><small>${p.growth}</small></span></div>`).join('');
+  document.getElementById('socialBars').innerHTML = data.socialPlatforms.map(p=>{
+    const width = (p.followers/max)*100;
+    return `<div class="chart-row" style="--w:${width}%"><span>${p.name}</span><div class="chart-track"><div class="chart-fill"></div></div><span>${fmt.format(p.followers)}<br><small>${p.growth}</small></span></div>`;
+  }).join('');
 }
 
-function renderEvents(){
-  document.getElementById('eventTimeline').innerHTML = data.events.map(e=>`<article class="event-card"><strong>${e.value}</strong><h3>${e.name}</h3><p>${e.text}</p></article>`).join('');
+function renderCampaigns(){
+  const max = Math.max(...data.campaigns.map(c=>c.mentions));
+  document.getElementById('campaignCards').innerHTML = data.campaigns.map((c,i)=>{
+    const width = (c.mentions/max)*100;
+    return `<article class="campaign-card" style="transition-delay:${i*80}ms">
+      <img src="assets/images/${c.image}" alt="">
+      <div>
+        <h3>${c.name}</h3>
+        <div class="campaign-number">${fmt.format(c.mentions)}</div>
+        <div class="campaign-bar" aria-hidden="true"><span style="--w:${width}%;--c:${c.colour}"></span></div>
+        <p><strong>${c.share}%</strong> of campaign media mentions. ${c.text}</p>
+      </div>
+    </article>`;
+  }).join('');
 }
 
-function renderDigital(){
-  document.getElementById('digitalCards').innerHTML = data.digital.map(item=>`<article class="mini-card"><strong>${item.value}</strong><span>${item.label}</span><p>${item.detail}</p></article>`).join('');
+function observeElements(){
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        entry.target.querySelectorAll('[data-count]').forEach(el=>{
+          if(el.dataset.done) return;
+          el.dataset.done = '1';
+          animateNumber(el, Number(el.dataset.count));
+        });
+      }
+    });
+  }, {threshold:.22});
+  document.querySelectorAll('.scene,.kpi-card,.chart-row,.campaign-card').forEach(el=>observer.observe(el));
 }
 
-function renderLessons(){
-  document.getElementById('lessonList').innerHTML = data.lessons.map(l=>`<li>${l}</li>`).join('');
+function updateProgress(){
+  const doc = document.documentElement;
+  const max = doc.scrollHeight - window.innerHeight;
+  const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+  document.getElementById('progressBar').style.width = `${pct}%`;
 }
 
-function activate(id){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active', p.id===id));
-  document.querySelectorAll('.nav-pill').forEach(b=>b.classList.toggle('active', b.dataset.target===id));
-  const panel = document.getElementById(id);
-  if(panel){
-    panel.focus({preventScroll:true});
-    panel.scrollIntoView({block:'start'});
-  }
-}
+renderHeroMetrics();
+renderSocial();
+renderCampaigns();
+observeElements();
+updateProgress();
+window.addEventListener('scroll', updateProgress, {passive:true});
 
-document.querySelectorAll('.nav-pill').forEach(btn=>btn.addEventListener('click',()=>activate(btn.dataset.target)));
-document.querySelectorAll('[data-jump]').forEach(btn=>btn.addEventListener('click',()=>activate(btn.dataset.jump)));
 document.getElementById('contrastToggle').addEventListener('click', e=>{
   const active = document.body.classList.toggle('high-contrast');
   e.currentTarget.setAttribute('aria-pressed', String(active));
 });
-
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){ entry.target.classList.add('is-visible'); }
-  });
-},{threshold:.18});
-
-document.querySelectorAll('.panel, .story-card, .image-tile').forEach(el=>observer.observe(el));
-
-renderHero();
-renderMetricGrid();
-renderChannels();
-renderCampaigns();
-renderSocial();
-renderEvents();
-renderDigital();
-renderLessons();

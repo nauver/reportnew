@@ -1,21 +1,20 @@
-# Annual Communication Report 2025 — GitHub Pages package
+# Annual Communication Report 2025 — Scroll Storytelling version
 
-Static interactive infographic prototype for the European Committee of the Regions Annual Communication Report 2025.
+This is a static GitHub Pages-ready interactive storytelling infographic.
 
-## Files
+## What changed in this version
 
-- `index.html` — main app, with embedded report data.
-- `css/styles.css` — visual identity, layout, responsiveness and accessibility styles.
-- `js/app.js` — counters, navigation, chart rendering and high-contrast toggle.
-- `assets/images/` — validated image names preserved.
-- `assets/logo/cor-logo-white.png` — CoR logo used in the app.
+- Vertical scroll-driven story instead of panel navigation.
+- Full-screen visual chapters.
+- Sticky progress bar.
+- Animated counters triggered on scroll.
+- Stronger image-led storytelling.
+- Clearer, lighter sections for charts and campaigns.
+- No framework, no build step, no external dependency.
 
-## Deployment on GitHub Pages
+## Deploy on GitHub Pages
 
-1. Create or open the GitHub repository.
-2. Upload the contents of this folder at the repository root.
-3. Go to **Settings → Pages**.
-4. Select branch `main` and folder `/root`.
-5. Save and wait for GitHub Pages to publish.
-
-No build step and no external dependency are required.
+1. Upload the contents of this ZIP to the root of your GitHub repository.
+2. Go to **Settings → Pages**.
+3. Select the `main` branch and `/root` folder.
+4. Save and wait for publication.
